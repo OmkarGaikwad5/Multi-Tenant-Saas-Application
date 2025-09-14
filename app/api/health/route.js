@@ -1,8 +1,12 @@
 import { NextResponse } from 'next/server'
 
-export async function GET() {
-  return NextResponse.json({ status: 'ok' }, { status: 200 })
+export async function GET(req) {
+  return new Response(JSON.stringify({ status: "ok" }), {
+    status: 200,
+    headers: { "Content-Type": "application/json" },
+  });
 }
+
 
 export async function OPTIONS() {
   return new NextResponse(null, {
