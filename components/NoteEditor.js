@@ -52,30 +52,30 @@ export default function NoteEditor({ note, user, onSave, onCancel }) {
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-lg border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center h-auto sm:h-16 gap-3 sm:gap-0 py-3 sm:py-0">
+            <div className="flex items-center gap-4 flex-wrap sm:flex-nowrap">
               <div className="h-10 w-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                <FileText className="h-6 w-6 text-white" />
+                <FileText className="h-6 w-6" />
               </div>
-              <h1 className="text-xl font-bold text-gray-900">
+              <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
                 {note ? 'Edit Note' : 'Create New Note'}
               </h1>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 flex-wrap sm:flex-nowrap mt-2 sm:mt-0">
               <button
                 onClick={onCancel}
-                className="btn-secondary flex items-center gap-2"
+                className="btn-secondary flex items-center gap-2 text-sm sm:text-base px-3 sm:px-4 py-2 rounded-lg"
               >
-                <X className="h-4 w-4" />
+                <X className="h-4 w-4 sm:h-5 sm:w-5" />
                 Cancel
               </button>
               <button
                 onClick={handleSave}
                 disabled={saving || !title.trim()}
-                className="btn-primary flex items-center gap-2"
+                className="btn-primary flex items-center gap-2 text-sm sm:text-base px-3 sm:px-4 py-2 rounded-lg"
               >
-                <Save className="h-4 w-4" />
+                <Save className="h-4 w-4 sm:h-5 sm:w-5" />
                 {saving ? 'Saving...' : 'Save Note'}
               </button>
             </div>
@@ -84,12 +84,12 @@ export default function NoteEditor({ note, user, onSave, onCancel }) {
       </header>
 
       {/* Editor */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="card">
-          <div className="p-8">
+          <div className="p-6 sm:p-8">
             <div className="space-y-6">
               <div>
-                <label htmlFor="title" className="block text-sm font-semibold text-gray-700 mb-3">
+                <label htmlFor="title" className="block text-sm sm:text-base font-semibold text-gray-700 mb-2 sm:mb-3">
                   Note Title
                 </label>
                 <input
@@ -97,29 +97,29 @@ export default function NoteEditor({ note, user, onSave, onCancel }) {
                   type="text"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="input-primary text-xl font-semibold"
+                  className="input-primary text-lg sm:text-xl font-semibold w-full"
                   placeholder="Enter your note title..."
                   maxLength="200"
                 />
-                <div className="text-right text-xs text-gray-500 mt-1">
+                <div className="text-right text-xs sm:text-sm text-gray-500 mt-1">
                   {title.length}/200 characters
                 </div>
               </div>
 
               <div>
-                <label htmlFor="content" className="block text-sm font-semibold text-gray-700 mb-3">
+                <label htmlFor="content" className="block text-sm sm:text-base font-semibold text-gray-700 mb-2 sm:mb-3">
                   Note Content
                 </label>
                 <textarea
                   id="content"
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
-                  className="input-primary resize-none leading-relaxed"
+                  className="input-primary resize-none leading-relaxed w-full text-sm sm:text-base"
                   placeholder="Write your note content here..."
-                  rows={20}
+                  rows={15}
                   maxLength="10000"
                 />
-                <div className="text-right text-xs text-gray-500 mt-1">
+                <div className="text-right text-xs sm:text-sm text-gray-500 mt-1">
                   {content.length}/10,000 characters
                 </div>
               </div>
