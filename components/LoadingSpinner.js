@@ -6,7 +6,7 @@ export default function LoadingSpinner() {
           <div className="w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
         </div>
         <h2 className="text-xl font-semibold text-gray-700 mb-2">Loading your workspace...</h2>
-        <p className="text-gray-500">Please wait while we prepare your notes</p>
+        <p className="text-gray-500">Please wait...</p>
       </div>
     </div>
   )
